@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+   <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+    <script type="text/javascript">
+
+    </script>
+</head>
+<body>
+<form method="post" >{% csrf_token %}
+    <input type="text" placeholder="Search here..." name="n" id="start" value="" required>
+    <button id="submit1" type="submit">Search</button>
+
+</form>
+    <div id="divID">
+</div>
+
+    FirstName: {{ f_name }} <br>
+    LastName: {{ l_name }} <br>
+    Result: {{ rs }}<br>
+
+    <button id="detail" type="button" onclick="ShowDiv()">Detail</button><br>
+
+<div id='details' style="display:none;" class="answer_list">
+    FirstName: {{ f_name }} <br>
+    LastName: {{ l_name }} <br>
+        Email: {{ email }} <br>
+    Result: {{ rs }}<br>
+    Subject: <br> {% for i in sub %}
+    {{ i }}<br>
+    {% endfor %}
+
+</div>
+</body>
+<script>
+        function ShowDiv() {
+        document.getElementById("details").style.display = "block";
+        }
+    </script>
+</html>
